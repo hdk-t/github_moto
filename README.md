@@ -1,3 +1,3 @@
 # github_moto
+バイクに関する情報を簡単に記録することができるAndroidスマートフォン用のアプリです。
 Upload app moto_maintenance source
-"本番用"
