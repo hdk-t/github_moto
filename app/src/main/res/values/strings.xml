@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">motomaintenance</string>
+    <string name="text_day">日付</string>
+    <string name="Mileage">現在の走行距離(Km)</string>
+    <string name="textview1" />
+    <string name="textview2" />
+    <string name="textview3" />
+    <string name="hizuke">日付</string>
+    <string name="soukoukyori">走行距離</string>
+    <string name="seibinaiyou">整備内容</string>
+    <string name="new_rec">新たな記録を作成</string>
+    <string name="info">バイク情報</string>
+
+    <string-array name = "maintenancelist">
+        <item>オイル交換</item>　<!-- ６ヶ月に１　2000～3000ｋｍに１ -->
+        <item>オイルフィルター交換</item>　<!--  年に１　6000ｋｍ毎に１-->
+        <item>タイヤ交換</item> <!-- 走行距離5000～10000km-->
+        <item>エンジンプラグ交換</item><!-- 5000～10000ｋｍに1 -->
+        <item>ブレーキパッド交換</item> <!-- 5000～10000ｋｍに１ 厚さが2ｍ以下の場合-->
+        <item>エアクリーナー交換・洗浄</item><!--5000km -->
+        <item>チェーン・ベルト交換</item> <!-- 20000ｋｍに１ -->
+        <item>スプロケット交換</item><!-- 20000ｋｍに１ -->
+        <item>クーラント（冷却水）交換</item><!-- ２年に１ -->
+        <item>ブレーキフルード交換</item> <!-- ２年に１ -->
+        <item>バッテリ―交換</item><!-- 2～3年に１ -->
+        <item>エンジンオーバーホール</item> <!-- 走行距離が100000ｋｍを超え、今後も乗り続けたいという場合に必要です -->
+        <item>車検</item>
+        <item>法定点検(１年)</item>
+        <item>法定点検(２年)</item>
+        <item>その他・カスタム</item>
+
+</string-array>
+
+</resources>
+

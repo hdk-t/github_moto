@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/machine_list"
+        android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/manufacturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="#303030"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/model"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:autoSizeTextType="uniform"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            app:autoSizeMaxTextSize="30sp"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:id="@+id/now_odo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:textColor="#303030"
+            android:textSize="16sp"
+            android:layout_marginStart="10dp" />
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/blue_frame"
+            android:descendantFocusability="blocksDescendants"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/info"
+            android:textColor="#0061AE"
+            android:textColorHighlight="#008EFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

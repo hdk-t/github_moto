@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+    package="com.example.motomaintenance">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_512"
+        android:roundIcon="@mipmap/ic_512round"
+        android:label="バイクメンテナンスノート"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="Record_Activity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:label="メンテナンス記録を入力" >
+        </activity>
+
+        <activity
+            android:name=".Maintenance_Data_Activity"
+            android:label="メンテンナンスの詳細" >
+        </activity>
+
+        <activity
+            android:name=".NewMoto"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:label="新しいバイクを追加" >
+        </activity>
+
+        <activity
+            android:name=".History_Activity"
+            android:label="メンテナンス履歴" >
+        </activity>
+
+        <activity
+            android:name="Moto_info"
+            android:label="バイク情報" >
+        </activity>
+
+        <activity
+            android:name=".Edit_Activity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:label="バイク情報を編集" >
+        </activity>
+
+        <activity
+            android:name=".Maintenance_Edit"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:label="メンテナンス情報を編集" >
+        </activity>
+
+    </application>
+</manifest>
