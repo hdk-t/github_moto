@@ -1,4 +1,4 @@
-package com.example.motomaintenance;
+package com.htapp.Moto_Maintenance;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -231,12 +231,12 @@ public class Edit_Activity extends AppCompatActivity {
                 }
                 String com2 = new String(sb);
 
-                edit("mf.txt", mft, num);
-                edit("md.txt", mdl, num);
-                edit("no.txt", no, num);
-                edit("go.txt", go, num);
-                edit("sd.txt", sd, num);
-                edit("com.txt", com2, num);
+                edit2("mf.txt", mft, num);
+                edit2("md.txt", mdl, num);
+                edit2("no.txt", no, num);
+                edit2("go.txt", go, num);
+                edit2("sd.txt", sd, num);
+                edit2("com.txt", com2, num);
 
                 finish();
 
@@ -247,8 +247,8 @@ public class Edit_Activity extends AppCompatActivity {
                 .show();
     }
 
-    //ファイルからＳｔｒｉｎｇ配列データを読み取って、要素を置き換えるメソッド
-    public void edit (String txt, String str, int num) {
+    //ファイルからＳｔｒｉｎｇ配列データを読み取って、要素を置き換えて、右に追記して再度出力する
+    public void edit2 (String txt, String str, int num) {
 
         String[] mf = readFile(txt);
 

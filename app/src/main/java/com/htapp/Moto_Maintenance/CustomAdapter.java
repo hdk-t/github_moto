@@ -1,11 +1,10 @@
-package com.example.motomaintenance;
+package com.htapp.Moto_Maintenance;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,7 +14,7 @@ class CustomAdapter extends BaseAdapter {
     private int resourcedId;
     private String[] model;
     private String[] manufacturer;
-    private String[] now_odo;
+    private String[] now_odo2;
 
     static class ViewHolder {
         TextView mdl;
@@ -30,7 +29,7 @@ class CustomAdapter extends BaseAdapter {
         this.resourcedId = resourcedId;
         this.model = model;
         this.manufacturer = manufacturer;
-        this.now_odo = now_odo;
+        this.now_odo2 = now_odo;
     }
 
     @Override
@@ -51,9 +50,9 @@ class CustomAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        String nowodo2 =("");
-        if(!(now_odo[position]).equals(" ")) {
-            int odoi = Integer.parseInt(now_odo[position]);
+        String nowodo2 =("現在の走行距離　未入力");
+        if(! now_odo2[position].equals(" ")) {
+            int odoi = Integer.parseInt(now_odo2[position]);
             nowodo2 = ("現在の走行距離 " + (String.format("%,d", odoi) + " Km"));
         }
 

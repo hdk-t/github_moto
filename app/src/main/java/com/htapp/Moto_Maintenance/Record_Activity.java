@@ -1,4 +1,4 @@
-package com.example.motomaintenance;
+package com.htapp.Moto_Maintenance;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -86,23 +86,6 @@ public class Record_Activity extends AppCompatActivity {
             String odo = odometer.getText().toString();
             String cont = maintenancelist.getSelectedItem().toString();
 
-            Intent intent = getIntent();
-            int num = intent.getIntExtra("ODO_NUM2",0);
-
-            String strnowodo = (readFile("no.txt")[num]);
-
-            //メイン画面の「現在の走行距離」を更新する処理
-            if(!strnowodo.equals(" ")) {
-                int odoi = Integer.parseInt(odo);
-                int odon = Integer.parseInt(strnowodo);
-                //保存した走行距離が現在の走行距離より大きいか判定し、大きければ現在の走行距離に上書きする
-                if (odoi > odon) {
-                    edit("no.txt", odo, num);
-                }
-            } else {
-                edit("no.txt", odo, num);
-            }
-
             //コメント入力に改行を入れた場合に発生するエラーを防ぐための処理
             SpannableStringBuilder sp = (SpannableStringBuilder)comment.getText();
             String comment2 = sp.toString();
@@ -127,7 +110,23 @@ public class Record_Activity extends AppCompatActivity {
 
             } else {
 
-                //上記の条件を満たした場合、メンテナンスデータを保存し終了する
+                //メイン画面の「現在の走行距離」を更新する処理
+                Intent intent = getIntent();
+                int num = intent.getIntExtra("ODO_NUM2",0);
+
+                String strnowodo = (readFile("no.txt")[num]);
+                if(!strnowodo.equals(" ")) {
+                    int odoi = Integer.parseInt(odo);
+                    int odon = Integer.parseInt(strnowodo);
+                    //保存した走行距離が現在の走行距離より大きいか判定し、大きければ現在の走行距離に上書きする
+                    if (odoi > odon) {
+                        edit2("no.txt", odo, num);
+                    }
+                } else {
+                    edit2("no.txt", odo, num);
+                }
+
+                //メンテナンスデータを保存し終了する
                 Intent intent2 = getIntent();
                 moto_data = intent2.getStringExtra(History_Activity.MOTO_DATA3);
 
@@ -205,33 +204,28 @@ public class Record_Activity extends AppCompatActivity {
         }
     }
 
-    //ファイルからＳｔｒｉｎｇ配列データを読み取って、要素を置き換えるメソッド
+    //ファイルからＳｔｒｉｎｇ配列データを読み取って、要素を置き換えて、右に追記して再度出力する
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void edit (String file, String newtxt , int num){
+    public void edit2 (String txt, String str, int num) {
 
-        String[] str = readFile(file);
+        String[] mf = readFile(txt);
 
-        List<String> list = new ArrayList<String>(Arrays.asList(str));
-        list.set(num,newtxt);
+        List<String> list = new ArrayList<String>(Arrays.asList(mf));
+        list.set(num, str);
 
-        String[] str2 = (String[]) list.toArray(new String[list.size()]);
+        String[] mf2 = (String[]) list.toArray(new String[list.size()]);
 
-        try (FileOutputStream fo = openFileOutput(file, Context.MODE_PRIVATE);) {
+        try (FileOutputStream fo = openFileOutput(txt, Context.MODE_PRIVATE)) {
             OutputStreamWriter osw = new OutputStreamWriter(fo, "UTF-8");
             PrintWriter pw = new PrintWriter(osw);
 
-            StringBuilder sb = new StringBuilder();
+            for (int count = 0; count < list.size(); count++) {
 
-            for(int count = str2.length ; count > 0 ; count--) {
-
-                sb.insert(0,",");
-                sb.insert(0, str2[count - 1]);
+                pw.append(mf2[count]);
+                pw.append(",");
 
             }
-
-            pw.println(sb.toString());
             pw.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }

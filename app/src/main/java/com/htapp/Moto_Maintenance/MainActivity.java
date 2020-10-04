@@ -1,4 +1,4 @@
-package com.example.motomaintenance;
+package com.htapp.Moto_Maintenance;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -22,12 +25,18 @@ public class MainActivity extends AppCompatActivity {
     public static final String MOTO_DATA = "com.example.motomaintenance.DATA";
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Main();
-
     }
 
     //画面が戻ってきた際にレイアウトをリフレッシュ
@@ -35,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         setContentView(R.layout.activity_main);
+
         Main();
     }
 
@@ -48,6 +58,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent3);
         }
     };
+
+    //メニューバーからデータ引き継ぎを押した時の処理
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case R.id.movedata:
+                Intent intent = new Intent(getApplication(), takeoverActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return false;
+    }
 
     //以下メソッド
 
@@ -95,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
 
     //txtファイル内の一行目を読み込み「,」で区切りString配列に格納するメソッド
     public String[] readFile(String file) {

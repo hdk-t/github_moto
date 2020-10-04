@@ -1,4 +1,4 @@
-package com.example.motomaintenance;
+package com.htapp.Moto_Maintenance;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -145,7 +145,7 @@ public class Moto_info extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("警告");
-        builder.setMessage("本当にこのバイクを削除しますか？\n(記録データも削除されます)");
+        builder.setMessage("本当にこのバイクを削除しますか？\n(メンテナンス記録も削除されます)");
         builder.setPositiveButton("削除", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

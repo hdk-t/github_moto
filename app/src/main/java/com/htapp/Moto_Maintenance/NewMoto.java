@@ -1,4 +1,4 @@
-package com.example.motomaintenance;
+package com.htapp.Moto_Maintenance;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -89,6 +89,7 @@ public class NewMoto extends AppCompatActivity {
                 mft = (" ");
             }
             String mdl = new_mdl.getText().toString();
+
             String no = now_odo.getText().toString();
             if(no.equals("")){
                 no = (" ");
@@ -134,6 +135,7 @@ public class NewMoto extends AppCompatActivity {
                 alert("入力欄に「 , 」を使用することはできません");
 
             }else{
+
                 //上記の条件を通過した場合にこれらのデータをtxtファイルに保存する
                 export_txt("mf.txt", mft);
                 export_txt("md.txt", mdl);
